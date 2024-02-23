@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import { ProductContext } from "../utils/Context";
 
 function Nav() {
-  const [product] = useState(ProductContext);
-  console.log(product)
+  const product = useContext(ProductContext);
+  console.log(product);
 
-  var distinct_product =
-    product && product.reduce((acc, cv) => [...acc,cv.category], []);
-    console.log(distinct_product)
+  const distinct_product =
+    product && product.reduce((acc, cv) => [...acc, cv.category], []);
+  console.log(distinct_product);
 
   return (
     <nav className="w-[20%] h-screen bg-zinc-50 py-7 px-5">
@@ -35,7 +35,6 @@ function Nav() {
       </ul>
     </nav>
   );
-
 }
 
 export default Nav;
